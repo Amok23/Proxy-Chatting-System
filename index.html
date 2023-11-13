@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" type="text/css" href="CSS_PAGE.css"/> 
+  <title>Proxy Chat login</title>
+</head>
+  <div Class="login">
+    <div Class="Container">
+      <div Class="MainContent">
+        <div Class="formContainer">
+          <form onSubmit={handleSubmit}>
+            <h3>Proxy Connect</h3>
+            
+            <input Class="text" type="" id="IP" ref={emailRef} value=""
+              placeholder="Proxy IP"/>
+             <!-- onChange={(e) =>setIP(e.target.value)}
+              required/> -->
+
+            <input Class="text" type="username" id="username" value=""
+              placeholder="Username"/>
+              <!-- onChange={(e) => setUsername(e.target.value)}
+              required 
+            /> -->
+
+            <button Class="button-small">Connect</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
+
+
