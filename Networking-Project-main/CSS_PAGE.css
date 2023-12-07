@@ -1,0 +1,367 @@
+/*  LOGIN */
+.login {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(-45deg, #907268, #716677, #6f8992, #738e7e);
+  background-size: 400% 400%;
+  animation: box-gradient 15s ease infinite running;
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+@keyframes box-gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 0% 100%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.Container {
+  max-width: 1240px;
+  padding: 0rem 0rem;
+  color: #282c34;
+  margin: auto;
+}
+
+.MainContent {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+  color: whitesmoke;
+}
+
+@media screen and (max-width: 913px) {
+  .login {
+    height: 100vh;
+    width: 100%;
+  }
+
+  .Container {
+    padding: 0 0rem;
+  }
+
+  .MainContent {
+    grid-template-columns: 1fr;
+  }
+
+  .formContainer {
+    padding: 50px 35px;
+    height: fit-content;
+    width: 80%;
+    position: relative;
+    margin: auto;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border-radius: none;
+    border: none;
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+/*  END LOGIN */
+
+html {
+  background-color: #8e5756;
+  font-family: "Poppins", sans-serif;
+  height: 100%;
+  overflow-x: hidden;
+  text-align: center;
+  background-color: #282c34;
+  color: whitesmoke;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+input::placeholder {
+  color: whitesmoke;
+  opacity: 1;
+}
+
+input {
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.07);
+  font-weight: 300;
+  margin-left: 0px;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 2px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+input:hover {
+  transition: all 0.6s ease;
+  border-bottom: 2px solid#61dafb;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+@keyframes box-gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 0% 100%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* END animate-text */
+/* HERO */
+
+@media screen and (max-width: 960px) {
+  .footer .Container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 1rem;
+  }
+}
+
+/*  End Footer */
+
+/*  BUTTON */
+
+.button {
+  display: inline-block;
+  padding: 15px;
+  border-radius: 0px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  min-width: 180px;
+  background-color: transparent;
+  color: whitesmoke;
+  padding: 11px;
+  margin-top: 15px;
+  border-bottom: whitesmoke 2px solid;
+  border-radius: 0px;
+  font-weight: bold;
+}
+
+.button:hover {
+  border-bottom: #61dafb 2px solid;
+}
+.button-small:hover {
+  border-bottom: #61dafb 2px solid;
+}
+.button-mediem:hover {
+  border-bottom: #61dafb 2px solid;
+}
+
+@media screen and (max-width: 913px) {
+  .button {
+    width: 180px;
+  }
+  .button-small {
+    width: 180px;
+  }
+}
+
+.button-small {
+  display: inline-block;
+  padding: 15px;
+  border-radius: 0px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  width: 40%;
+  min-width: 180px;
+  background-color: transparent;
+  color: whitesmoke;
+  padding: 11px;
+  margin-top: 15px;
+  border: none;
+  border-bottom: whitesmoke 2px solid;
+  border-radius: 0px;
+  font-weight: bold;
+}
+
+/*   END BUTTON */
+
+/*  formContainer */
+
+.formContainer h3 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+  padding-bottom: 15px;
+  letter-spacing: 9px;
+  text-decoration: overline;
+  color: whitesmoke;
+}
+
+.formContainer h1 {
+  font-size: 20px;
+}
+
+.formContainer input {
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.07);
+  font-weight: 300;
+  margin-left: 0px;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 2px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+input:hover {
+  border-bottom: 2px solid#61dafb;
+}
+
+.Chatpage .formContainer {
+  justify-content: center;
+  align-items: center;
+  padding: 50px 35px;
+  height: fit-content;
+  width: 700px;
+  max-height: 500px;
+  position: relative;
+  margin: auto;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  outline: none;
+  border-radius: 10px;
+}
+
+.formContainer input {
+  min-width: 180px;
+  max-width: 400px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.chat {
+  border: none;
+  border-bottom: 2px solid#61dafb;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  color: black;
+  padding: 10px;
+  margin: 10px 0;
+  display: flex;
+}
+
+.chatbox {
+  max-width: 800px;
+  max-height: 400px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.chatbox::-webkit-scrollbar {
+  display: none;
+}
+
+.time-right {
+  color: #aaa;
+}
+
+.sendarea {
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sendarea .button-small {
+  display: block;
+  height: 35px;
+  width: 10%;
+  min-width: 150px;
+  background-color: rgba(255, 255, 255, 0.07);
+  font-weight: 300;
+  margin-left: 0px;
+  padding-left: 5px;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 2px solid#61dafb;
+  outline: none;
+  background: transparent;
+}
