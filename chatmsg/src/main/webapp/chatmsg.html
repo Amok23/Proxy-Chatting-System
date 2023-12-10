@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="CSS_PAGE.css"/>
+    <title>Proxy Chat</title>
+</head>
+<body>
+<div class="Chatpage">
+    <div class="Container">
+        <div class="MainContent">
+            <div class="formContainer">
+                <h3>Proxy <span id="userIp">{IP}</span></h3>
+                <div class="chatbox" id="chatMessages">
+                    <! -- Chat messages will be displayed here -->
+                </div>
+                <div class="sendarea">
+                    <form id="chatForm">
+                        <input class="text" type="text" id="message" placeholder="Message"/>
+                        <button class="button-small" type="submit">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var socket;
+    var username; // Define username as a global variable
+
+    window.addEventListener('load', function() {
+        var ip = localStorage.getItem('ip');
+        username = localStorage.getItem('username');
+
+        if (ip && username) {
+            document.getElementById('userIp').textContent = ip;
+            // Establish a WebSocket connection
+            socket = new WebSocket('ws://localhost:8080/chatwebmsg/chat?username=' + encodeURIComponent(username) + '&ip=' + encodeURIComponent(ip));
+
+            socket.onopen = function(event) {
+                console.log("Connected to WebSocket server.");
+
+                // Send a heartbeat response
+                socket.onmessage = function(event) {
+                    if (event.data === "heartbeat") {
+                        console.log("Heartbeat received");
+                        return;
+                    }
+                    console.log("Message from server: " + event.data);
+                    updateChatMessages(event.data); // Update the chat information
+                };
+
+                // Send the initial message to the server
+                let initMessage = JSON.stringify({ username: username, text: "joined the chat" });
+                socket.send(initMessage);
+            };
+
+            socket.onclose = function(event) {
+                console.log("WebSocket connection closed.");
+            };
+
+            socket.onerror = function(error) {
+                console.error("WebSocket error:", error);
+            };
+        }
+    });
+
+    document.getElementById('chatForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        let message = document.getElementById('message').value;
+
+        if (message && username) {
+            let chatMessage = JSON.stringify({ username: username, text: message });
+            socket.send(chatMessage); // Send a message through WebSocket
+            document.getElementById('message').value = ''; // Clear the message box
+        }
+    });
+
+    function updateChatMessages(data) {
+        console.log("Updating chat messages with data:", data);
+        let chatMessagesDiv = document.getElementById('chatMessages');
+
+        // Check whether it is a special server message
+        if (data === "Too many messages. Slow down.") {
+            alert("Too many messages. Slow down."); // Displays a warning box
+            return;
+        }
+
+        let messageDiv = document.createElement('div');
+        messageDiv.className = 'chat';
+
+        // Parse the JSON message
+        try {
+            let jsonMessage = JSON.parse(data);
+            let messageContent = jsonMessage.username + ": " + jsonMessage.text + " (" + jsonMessage.time + ")"; // Message content with timestamp
+
+            let messagePara = document.createElement('p');
+            messagePara.textContent = messageContent; // Displays the parsed message content
+            messageDiv.appendChild(messagePara);
+            chatMessagesDiv.appendChild(messageDiv);
+            chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight; // Scroll to latest news
+        } catch (e) {
+            console.log("Error parsing message JSON:", e);
+        }
+    }
+
+</script>
+</body>
+</html>
