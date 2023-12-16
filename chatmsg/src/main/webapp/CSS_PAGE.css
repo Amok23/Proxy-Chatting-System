@@ -101,6 +101,9 @@ html {
   overflow-x: hidden;
   text-align: center;
   background-color: #282c34;
+  background: linear-gradient(-45deg, #907268, #716677, #6f8992, #738e7e);
+  background-size: 400% 400%;
+  animation: box-gradient 15s ease infinite running;
   color: whitesmoke;
   position: relative;
 }
@@ -311,10 +314,10 @@ input:hover {
 .chat {
   border: none;
   border-bottom: 2px solid#61dafb;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  color: black;
+  background-color: #f1f1f100;
+  color: rgb(255, 255, 255);
   padding: 10px;
+  text-align: left;
   margin: 10px 0;
   display: flex;
 }
@@ -329,20 +332,29 @@ input:hover {
   overflow-y: auto;
   margin: 40px auto;
   padding: 20px;
-  background-color: #f7f7f7;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .chatbox::-webkit-scrollbar {
-  display: none;
+  display: none;;
+  width: 10px;
+  background: rgba(0, 0, 0, 0.0)
+  
+
+}
+.chatbox::-webkit-scrollbar-thumb {
+  background:  #aaa; 
 }
 
 .time-right {
   color: #aaa;
 }
 
-.sendarea #chatForm{
+.sendarea {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
   padding: 30px;
   display: flex;
   justify-content: space-between;
@@ -361,7 +373,16 @@ input:hover {
   color: #fff;
   margin-bottom: 30px;
   border: none;
-  border-bottom: 2px solid#61dafb;
+  border-bottom: 2px solid#fff;
   outline: none;
   background: transparent;
+}
+
+.sendarea input {
+  resize: vertical;
+  overflow
+}
+
+.sendarea .button-small:hover {
+  border-bottom: 2px solid #61dafb;
 }
