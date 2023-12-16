@@ -53,7 +53,7 @@
                 };
 
                 // Send the initial message to the server
-                let initMessage = JSON.stringify({ username: username, text: "joined the chat" });
+                let initMessage = JSON.stringify({ username: username, text: "joined the chatroom" });
                 socket.send(initMessage);
             };
 
@@ -94,7 +94,7 @@
         // Parse the JSON message
         try {
             let jsonMessage = JSON.parse(data);
-            let messageContent = jsonMessage.username + ": " + jsonMessage.text + " (" + jsonMessage.time + ")"; // Message content with timestamp
+            let messageContent = jsonMessage.username + " : " + jsonMessage.text + "   (" + jsonMessage.time + ")"; // Message content with timestamp
 
             let messagePara = document.createElement('p');
             messagePara.textContent = messageContent; // Displays the parsed message content
